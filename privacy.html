@@ -1,88 +1,125 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy | Okapi</title>
-  <meta name="description" content="Okapi's privacy policy: your highlights stay on your device. No accounts, no servers, no tracking.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="assets/favicon.ico" sizes="48x48">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Okapi</title>
+    <meta name="description" content="Okapi's privacy policy: your highlights stay on your device. No accounts, no servers, no tracking.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        okapi: {
+                            choco: '#1E0F0B',
+                            dark: '#2a1610',
+                            border: '#4a2a20',
+                            cream: '#F4E9DA',
+                            amber: '#F5B841'
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #1E0F0B; color: #F4E9DA; }
+        .doc h2 { color: #fff; font-weight: 700; font-size: 1.15rem; margin: 2rem 0 .5rem; }
+        .doc p, .doc li { color: #cbb9ab; line-height: 1.7; font-size: .95rem; }
+        .doc ul { list-style: disc; padding-left: 1.4rem; margin: .5rem 0; }
+        .doc li { margin: .3rem 0; }
+        .doc a { color: #F5B841; }
+        .doc a:hover { text-decoration: underline; }
+        .doc em { color: #F4E9DA; }
+    </style>
 </head>
-<body>
-  <header class="site">
-    <div class="wrap">
-      <a class="logo" href="index.html" aria-label="Okapi home">
-        <img src="assets/okapi-mark.svg" alt="" width="42" height="42">
-        <span class="logo-name">Okapi</span>
-      </a>
-      <nav>
-        <a href="index.html#features">Features</a>
-        <a href="index.html#about">About</a>
-        <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy</a>
-      </nav>
-    </div>
-  </header>
+<body class="bg-okapi-choco text-okapi-cream antialiased">
+    <header class="fixed top-0 left-0 right-0 z-50 border-b border-okapi-border/50 bg-okapi-choco/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Okapi home">
+                <img src="assets/okapi-mark.svg" alt="" width="40" height="40" class="w-10 h-10 group-hover:scale-105 transition-transform">
+                <span class="font-bold text-xl tracking-tight text-white">Okapi</span>
+            </a>
+            <nav class="flex items-center gap-5 sm:gap-8 text-sm font-medium text-slate-300">
+                <a href="index.html#features" class="hover:text-okapi-amber transition-colors">Features</a>
+                <a href="index.html#support" class="hover:text-okapi-amber transition-colors">Support</a>
+            </nav>
+        </div>
+    </header>
 
-  <main class="wrap doc">
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: October 25, 2026</p>
+    <main class="doc max-w-3xl mx-auto px-4 sm:px-6 pt-28 pb-20">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Privacy Policy</h1>
+        <p class="!text-slate-500 !text-sm mt-2 mb-8">Last updated: October 25, 2026</p>
 
-    <div class="summary">
-      <strong>In short:</strong> Okapi keeps everything you save on your own computer. It has no accounts, no servers, no analytics and no ads. We don't collect, sell or share your data.
-    </div>
+        <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30">
+            <p class="!text-emerald-300"><strong>In short:</strong> Okapi keeps everything you save on your own computer. It has no accounts, no servers, no analytics and no ads. We don't collect, sell or share your data.</p>
+        </div>
 
-    <h2>What Okapi stores</h2>
-    <p>When you save a highlight or write a note, Okapi stores the following in your browser's local storage (IndexedDB) on your device:</p>
-    <ul>
-      <li>the text you saved and any tags or notes you add;</li>
-      <li>the title, address (URL), website and icon of the page it came from;</li>
-      <li>the date and time you saved it;</li>
-      <li>summaries you ask Okapi to generate;</li>
-      <li>your settings, such as your chosen theme and layout.</li>
-    </ul>
-    <p>This data never leaves your device. We have no server to send it to, and we can't see it.</p>
+        <h2>What Okapi stores</h2>
+        <p>When you save a highlight or write a note, Okapi stores the following in your browser's local storage (IndexedDB) on your device:</p>
+        <ul>
+            <li>the text you saved and any tags or notes you add;</li>
+            <li>the title, address (URL), website and icon of the page it came from;</li>
+            <li>the date and time you saved it;</li>
+            <li>summaries you ask Okapi to generate;</li>
+            <li>your settings, such as your chosen theme and layout.</li>
+        </ul>
+        <p>This data never leaves your device. We have no server to send it to, and we can't see it.</p>
 
-    <h2>What Okapi does not do</h2>
-    <ul>
-      <li>It does not collect personal information.</li>
-      <li>It does not use analytics, tracking, advertising or cookies.</li>
-      <li>It does not sell, share or transfer your data to anyone.</li>
-      <li>It does not sync to the cloud. To move your notes to another computer, use Export and Import.</li>
-    </ul>
+        <h2>What Okapi does not do</h2>
+        <ul>
+            <li>It does not collect personal information.</li>
+            <li>It does not use analytics, tracking, advertising or cookies.</li>
+            <li>It does not sell, share or transfer your data to anyone.</li>
+            <li>It does not sync to the cloud. To move your notes to another computer, use Export and Import.</li>
+        </ul>
 
-    <h2>Why Okapi asks for access to web pages</h2>
-    <p>Okapi runs a small script on the pages you visit so it can show the <em>Save snippet</em> button when you select text, and so it can highlight text you saved earlier. The script works on the page in your browser only. It does not send page content anywhere. It also uses the <em>activeTab</em> permission to read the current page's title and address when you choose to attach it to a note, and the <em>storage</em> permission to remember your settings.</p>
+        <h2>Why Okapi asks for access to web pages</h2>
+        <p>Okapi runs a small script on the pages you visit so it can show the <em>Save snippet</em> button when you select text, and so it can highlight text you saved earlier. The script works on the page in your browser only. It does not send page content anywhere. It also uses the <em>activeTab</em> permission to read the current page's title and address when you choose to attach it to a note, and the <em>storage</em> permission to remember your settings.</p>
 
-    <h2>AI summaries</h2>
-    <p>The summary feature uses Chrome's built-in AI (Gemini Nano), which runs on your device. It only runs when you press a Summarize button. To summarize a page, Okapi briefly opens it in a background tab, reads its text, and closes the tab. The text is not stored or sent to any server by Okapi. The first time you use the feature, Chrome may download its on-device AI model, and Okapi asks before this happens. That download is handled by Chrome, not by Okapi.</p>
+        <h2>AI summaries</h2>
+        <p>The summary feature uses Chrome's built-in AI (Gemini Nano), which runs on your device. It only runs when you press a Summarize button. To summarize a page, Okapi briefly opens it in a background tab, reads its text, and closes the tab. The text is not stored or sent to any server by Okapi. The first time you use the feature, Chrome may download its on-device AI model, and Okapi asks before this happens. That download is handled by Chrome, not by Okapi.</p>
 
-    <h2>Exporting your data</h2>
-    <p>If you export your notes to PDF, Word, text or JSON, the file is created on your device and saved where you choose. What you do with it afterwards is up to you.</p>
+        <h2>Exporting your data</h2>
+        <p>If you export your notes to PDF, Word, text or JSON, the file is created on your device and saved where you choose. What you do with it afterwards is up to you.</p>
 
-    <h2>Deleting your data</h2>
-    <p>You can delete a single highlight, a page, or everything at any time from the Okapi library (Settings &rsaquo; Data &rsaquo; Clear all). Removing the extension from Chrome also removes its stored data.</p>
+        <h2>Deleting your data</h2>
+        <p>You can delete a single highlight, a page, or everything at any time from the Okapi library (Settings &rsaquo; Data &rsaquo; Clear all). Removing the extension from Chrome also removes its stored data.</p>
 
-    <h2>Children</h2>
-    <p>Okapi doesn't collect personal information from anyone, including children.</p>
+        <h2>Children</h2>
+        <p>Okapi doesn't collect personal information from anyone, including children.</p>
 
-    <h2>Changes to this policy</h2>
-    <p>If this policy changes, the updated version will be posted on this page with a new date.</p>
+        <h2>Changes to this policy</h2>
+        <p>If this policy changes, the updated version will be posted on this page with a new date.</p>
 
-    <h2>Contact</h2>
-    <!-- TODO: replace with the email address you want to publish -->
-    <p>Questions about this policy? Email <a href="mailto:hello@okapi.in">hello@okapi.in</a>.</p>
-  </main>
+        <h2>Contact</h2>
+        <!-- TODO: replace with the email address you want to publish -->
+        <p>Questions about this policy? Email <a href="mailto:hello@okapi.in">hello@okapi.in</a>.</p>
+    </main>
 
-  <footer class="site">
-    <div class="wrap">
-      <span>&copy; 2026 Okapi</span>
-      <span><a href="index.html">Home</a> &middot; <a href="support.html">Support</a> &middot; <a href="https://github.com/okapi-connect/okapi">GitHub</a></span>
-    </div>
-  </footer>
+    <footer class="border-t border-okapi-border/70 bg-[#160a07] py-10 relative">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-okapi-amber"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="flex items-center gap-2">
+                <img src="assets/okapi-icon.svg" alt="" width="20" height="20" class="w-5 h-5">
+                <span>&copy; 2026 Okapi</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="hover:text-white">Home</a>
+                <a href="index.html#support" class="hover:text-white">Support</a>
+                <a href="https://github.com/okapi-connect/okapi" class="hover:text-white">GitHub</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
