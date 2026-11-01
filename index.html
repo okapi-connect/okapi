@@ -80,14 +80,8 @@
             border: 1px solid rgba(245, 184, 65, 0.15);
         }
 
-        /* Theme preview: colours come from the extension's lib/themes.css */
-        .tp { background: var(--p-bg); color: var(--p-fg); border-color: var(--p-accent); }
-        .tp-muted { color: var(--p-muted); }
-        .tp-line { border-color: var(--p-line); }
-        .tp-mark { background: var(--p-mark); color: inherit; }
-        .tp-chip { background: var(--p-chip); color: var(--p-chipFg); }
-        .tp-btn { background: var(--p-accent); color: var(--p-on); }
-        .tp-logo { background: var(--p-logoBg); }
+        .no-scrollbar { scrollbar-width: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
 
         /* Custom scrollbars */
         ::-webkit-scrollbar { width: 8px; }
@@ -256,7 +250,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">One-click saving & tags</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Select text anywhere and click <em>Save snippet</em>. Add tags as you save, with suggestions from the tags you already use.
+                            Select text anywhere and click <em>Save</em>. Add tags as you save, with suggestions from the tags you already use.
                         </p>
                     </div>
 
@@ -333,7 +327,7 @@
                                     <i class="fa-solid fa-bolt text-xs"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-semibold text-sm">Runs on your hardware, free</h4>
+                                    <h4 class="text-white font-semibold text-sm">Runs on your device completely free</h4>
                                     <p class="text-slate-400 text-xs mt-1">Summaries use the model built into Chrome. No API keys and no usage costs.</p>
                                 </div>
                             </div>
@@ -387,70 +381,40 @@
             </div>
         </section>
 
-        <!-- Library View Simulator -->
+        <!-- See it in action: screenshots of the extension -->
         <section id="library" class="py-20 border-t border-okapi-border/40 bg-okapi-dark/40 scroll-mt-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-                    <div>
-                        <h2 class="text-xs uppercase tracking-widest text-okapi-amber font-bold mb-3">Your library</h2>
-                        <p class="text-3xl font-extrabold text-white">Your personal knowledge base</p>
-                    </div>
-                    <div class="bg-okapi-dark p-1 rounded-xl border border-okapi-border flex flex-wrap items-center gap-1 text-xs text-slate-300 self-start md:self-auto">
-                        <button onclick="switchLibraryView('cards')" id="tab-cards" class="px-3 py-1.5 rounded-lg bg-okapi-amber text-okapi-choco font-semibold transition-all">
-                            <i class="fa-solid fa-table-cells-large mr-1.5"></i> Cards
-                        </button>
-                        <button onclick="switchLibraryView('list')" id="tab-list" class="px-3 py-1.5 rounded-lg hover:text-white transition-all">
-                            <i class="fa-solid fa-list mr-1.5"></i> List
-                        </button>
-                        <button onclick="switchLibraryView('reader')" id="tab-reader" class="px-3 py-1.5 rounded-lg hover:text-white transition-all">
-                            <i class="fa-solid fa-align-left mr-1.5"></i> One after another
-                        </button>
-                    </div>
-                </div>
-
-                <div id="library-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="glass-okapi p-6 rounded-2xl border border-okapi-border space-y-4">
-                        <div class="flex items-center justify-between text-xs text-slate-400">
-                            <span class="bg-okapi-choco border border-okapi-border text-okapi-amber px-2 py-1 rounded font-mono">github.com</span>
-                            <i class="fa-solid fa-star text-amber-400"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white hover:text-okapi-amber cursor-pointer">React 19 Server Actions Architecture</h3>
-                        <p class="text-slate-300 text-xs leading-relaxed">
-                            <mark class="highlight-yellow px-1 py-0.5 rounded">Server actions allow client components to invoke async functions running directly on the server without explicit API endpoints.</mark>
-                        </p>
-                        <div class="flex items-center gap-2 pt-2">
-                            <span class="text-[11px] bg-white/5 text-slate-400 px-2 py-0.5 rounded">#react</span>
-                            <span class="text-[11px] bg-white/5 text-slate-400 px-2 py-0.5 rounded">#frontend</span>
-                        </div>
+                <!-- Feature screenshots carousel (slides and steps built from SHOWCASE in the script below) -->
+                <div id="showcase" aria-roledescription="carousel" aria-label="Okapi in action">
+                    <div class="text-center max-w-3xl mx-auto mb-10">
+                        <h2 class="text-xs uppercase tracking-widest text-okapi-amber font-bold mb-3">See it in action</h2>
+                        <p class="text-3xl font-extrabold text-white">From page to notebook in one click</p>
                     </div>
 
-                    <div class="glass-okapi p-6 rounded-2xl border border-okapi-border space-y-4">
-                        <div class="flex items-center justify-between text-xs text-slate-400">
-                            <span class="bg-okapi-choco border border-okapi-border text-emerald-400 px-2 py-1 rounded font-mono">arxiv.org</span>
-                            <i class="fa-regular fa-star text-slate-500"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white hover:text-okapi-amber cursor-pointer">Attention Mechanisms in Transformer Networks</h3>
-                        <p class="text-slate-300 text-xs leading-relaxed">
-                            <mark class="highlight-yellow px-1 py-0.5 rounded">Multi-head self-attention enables parallelized processing of long contextual dependencies across variable sequence lengths.</mark>
-                        </p>
-                        <div class="flex items-center gap-2 pt-2">
-                            <span class="text-[11px] bg-white/5 text-slate-400 px-2 py-0.5 rounded">#ai</span>
-                            <span class="text-[11px] bg-white/5 text-slate-400 px-2 py-0.5 rounded">#deep-learning</span>
-                        </div>
-                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div id="showcase-steps" class="hidden lg:block lg:col-span-4 space-y-1"></div>
 
-                    <div class="glass-okapi p-6 rounded-2xl border border-okapi-border space-y-4">
-                        <div class="flex items-center justify-between text-xs text-slate-400">
-                            <span class="bg-okapi-choco border border-okapi-border text-cyan-400 px-2 py-1 rounded font-mono">css-tricks.com</span>
-                            <i class="fa-solid fa-star text-amber-400"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white hover:text-okapi-amber cursor-pointer">Modern CSS Container Queries Guide</h3>
-                        <p class="text-slate-300 text-xs leading-relaxed">
-                            <mark class="highlight-yellow px-1 py-0.5 rounded">Container queries evaluate layout styling relative to parent component dimensions rather than viewport widths.</mark>
-                        </p>
-                        <div class="flex items-center gap-2 pt-2">
-                            <span class="text-[11px] bg-white/5 text-slate-400 px-2 py-0.5 rounded">#css</span>
-                            <span class="text-[11px] bg-white/5 text-slate-400 px-2 py-0.5 rounded">#design</span>
+                        <div class="lg:col-span-8">
+                            <div class="rounded-2xl glass-okapi border border-okapi-amber/20 shadow-2xl overflow-hidden">
+                                <div class="bg-okapi-dark px-4 py-2.5 border-b border-okapi-border flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button data-step="-1" aria-label="Previous screenshot" class="w-7 h-7 rounded-lg bg-okapi-choco border border-okapi-border text-slate-300 hover:text-okapi-amber hover:border-okapi-amber/50 transition-all text-xs">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </button>
+                                        <button data-step="1" aria-label="Next screenshot" class="w-7 h-7 rounded-lg bg-okapi-choco border border-okapi-border text-slate-300 hover:text-okapi-amber hover:border-okapi-amber/50 transition-all text-xs">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="showcase-track" data-track class="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth bg-white"></div>
+                            </div>
+                            <div id="showcase-caption" class="lg:hidden mt-4 text-center" aria-live="polite"></div>
+                            <div data-dots class="flex justify-center gap-2 mt-4"></div>
                         </div>
                     </div>
                 </div>
@@ -468,30 +432,9 @@
 
                 <div id="theme-buttons" class="flex flex-wrap justify-center gap-3 mb-10"></div>
 
-                <div id="theme-preview-box" class="tp max-w-3xl mx-auto rounded-2xl p-6 sm:p-8 border-2 transition-all duration-300 shadow-2xl">
-                    <div class="tp-line flex items-center justify-between gap-4 mb-6 border-b pb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="tp-logo w-10 h-10 rounded-lg flex items-center justify-center p-1">
-                                <img src="assets/okapi-icon.svg" alt="" width="32" height="32" class="w-8 h-8">
-                            </div>
-                            <div>
-                                <div id="theme-title" class="font-bold text-base">Okapi</div>
-                                <div class="tp-muted text-xs">Settings › Appearance</div>
-                            </div>
-                        </div>
-                        <span class="tp-btn text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap">+ Add note</span>
-                    </div>
-
-                    <div class="space-y-4">
-                        <h4 class="font-bold text-lg">Sample highlight</h4>
-                        <p class="text-sm leading-relaxed">
-                            <mark class="tp-mark px-1 py-0.5 rounded">Every theme is tuned for contrast and comfortable reading,</mark> whether it's a long afternoon of research or a late-night read.
-                        </p>
-                        <div class="flex items-center gap-2">
-                            <span class="tp-chip text-[11px] px-2 py-0.5 rounded">#reading</span>
-                            <span class="tp-chip text-[11px] px-2 py-0.5 rounded">#research</span>
-                        </div>
-                    </div>
+                <!-- Real screenshots of the library in each theme (assets/screens/themes) -->
+                <div id="theme-preview-box" class="max-w-5xl mx-auto rounded-2xl border-2 overflow-hidden transition-colors duration-300 shadow-2xl">
+                    <img id="theme-shot" src="assets/screens/themes/okapi.webp" alt="The Okapi library in the Okapi theme" width="1280" height="800" class="w-full aspect-[16/5] object-cover object-top block">
                 </div>
             </div>
         </section>
@@ -501,58 +444,12 @@
     <main id="support-section" class="pt-24 pb-24 min-h-screen hidden">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-okapi-terracotta/20 border border-okapi-terracotta/40 text-okapi-amber text-xs font-semibold">
-                    <span>🌿</span>
-                    <span>Feed the Okapi • Keep it free and independent</span>
-                </div>
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-                    Support Okapi
-                </h1>
-                <p class="text-slate-300 text-base leading-relaxed">
-                    Okapi is free, and it stays free either way, with <strong>no ads, no tracking and no subscriptions</strong>. If it has saved you time, you can leave a tip to help keep it maintained. Tips are optional and never unlock anything.
-                </p>
-            </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <!-- Tip Tier Selector Card -->
+                <!-- Payment Card -->
                 <div class="lg:col-span-7 glass-okapi p-6 sm:p-8 rounded-2xl border border-okapi-amber/30 shadow-2xl space-y-8">
 
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-1">Pick a snack</h3>
-                        <p class="text-slate-400 text-xs">Suggested amounts. You choose the final amount on the payment page.</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <button onclick="selectTipTier(3, '🌿 A fresh leaf', this)" class="tip-tier-btn active p-4 rounded-xl border border-okapi-amber bg-okapi-terracotta/20 text-left transition-all hover:scale-105">
-                            <div class="text-2xl mb-1">🌿</div>
-                            <div class="font-bold text-sm text-white">$3 / ₹250</div>
-                            <div class="text-[11px] text-okapi-amber mt-1">A fresh leaf</div>
-                        </button>
-
-                        <button onclick="selectTipTier(5, '🎋 A snack pack', this)" class="tip-tier-btn p-4 rounded-xl border border-okapi-border bg-okapi-dark text-left transition-all hover:scale-105">
-                            <div class="text-2xl mb-1">🎋</div>
-                            <div class="font-bold text-sm text-white">$5 / ₹400</div>
-                            <div class="text-[11px] text-slate-400 mt-1">A snack pack</div>
-                        </button>
-
-                        <button onclick="selectTipTier(10, '🌳 A rainforest feast', this)" class="tip-tier-btn p-4 rounded-xl border border-okapi-border bg-okapi-dark text-left transition-all hover:scale-105">
-                            <div class="text-2xl mb-1">🌳</div>
-                            <div class="font-bold text-sm text-white">$10 / ₹800</div>
-                            <div class="text-[11px] text-slate-400 mt-1">A rainforest feast</div>
-                        </button>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-okapi-choco border border-okapi-border flex items-center justify-between gap-4">
-                        <div>
-                            <span class="text-xs text-slate-400 block">Your pick:</span>
-                            <span id="selected-tier-name" class="font-bold text-okapi-amber text-sm">🌿 A fresh leaf</span>
-                        </div>
-                        <div id="selected-tier-amount" class="text-lg sm:text-xl font-extrabold text-white text-right">$3 / ₹250</div>
-                    </div>
-
-                    <div class="space-y-4 pt-2">
-                        <h4 class="text-xs uppercase tracking-widest text-slate-400 font-bold">Choose how to pay</h4>
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-bold text-white">Choose how to pay</h3>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="p-5 rounded-xl border border-blue-500/30 bg-blue-950/20 space-y-3 flex flex-col justify-between">
@@ -563,12 +460,10 @@
                                     <div class="font-bold text-white text-sm">Razorpay (UPI, cards, netbanking)</div>
                                     <p class="text-[11px] text-slate-400 mt-1">Pay once, in rupees.</p>
                                 </div>
-                                <!-- TODO: when the Razorpay page is live, replace the <span> below with:
-                                     <a href="RAZORPAY_URL" target="_blank" rel="noopener" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs py-2.5 rounded-lg transition-all shadow-md flex items-center justify-center gap-2"><i class="fa-solid fa-qrcode"></i><span>Pay with Razorpay</span></a> -->
-                                <span aria-disabled="true" class="w-full bg-white/5 border border-white/10 text-slate-400 font-semibold text-xs py-2.5 rounded-lg flex items-center justify-center gap-2 cursor-default">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <span>Coming soon</span>
-                                </span>
+                                <a href="https://rzp.io/rzp/YR7lFiAH" target="_blank" rel="noopener" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs py-2.5 rounded-lg transition-all shadow-md flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-qrcode"></i>
+                                    <span>Pay with Razorpay</span>
+                                </a>
                             </div>
 
                             <div class="p-5 rounded-xl border border-amber-500/30 bg-amber-950/20 space-y-3 flex flex-col justify-between">
@@ -587,12 +482,31 @@
                         </div>
                         <p class="text-[11px] text-slate-500 leading-relaxed">Payments are handled on Razorpay's and Buy Me a Coffee's own pages. Okapi never sees your payment details, and nothing in the extension changes whether you tip or not.</p>
                     </div>
+
+                    <!-- Okapi facts carousel (slides built from FACTS in the script below) -->
+                    <div class="pt-6 border-t border-okapi-border/60" id="facts" aria-roledescription="carousel" aria-label="Okapi facts">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xs uppercase tracking-widest text-okapi-amber font-bold">Why an okapi?</h4>
+                            <div class="flex items-center gap-2">
+                                <button data-step="-1" aria-label="Previous fact" class="w-7 h-7 rounded-lg bg-okapi-dark border border-okapi-border text-slate-300 hover:text-okapi-amber hover:border-okapi-amber/50 transition-all text-xs">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                                <button data-step="1" aria-label="Next fact" class="w-7 h-7 rounded-lg bg-okapi-dark border border-okapi-border text-slate-300 hover:text-okapi-amber hover:border-okapi-amber/50 transition-all text-xs">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div data-track class="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth rounded-xl"></div>
+                        <div data-dots class="flex justify-center gap-2 mt-4"></div>
+                    </div>
                 </div>
 
                 <!-- Mascot Sidebar & FAQs -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="glass-okapi p-6 rounded-2xl border border-okapi-amber/20 text-center space-y-4">
-                        <img src="assets/okapi-mark.svg" alt="The Okapi mascot" width="96" height="96" class="w-24 h-24 mx-auto drop-shadow-xl">
+                        <div class="w-28 h-28 mx-auto rounded-full bg-okapi-cream shadow-xl ring-4 ring-okapi-amber/30 flex items-center justify-center">
+                            <img src="assets/okapi-mascot.webp" alt="An okapi looking back over its striped hindquarters" width="96" height="96" class="w-24 h-24">
+                        </div>
                         <h4 class="text-xl font-extrabold text-white">Why support Okapi?</h4>
                         <p class="text-xs text-slate-300 leading-relaxed">
                             Okapi is an independent project, built by one developer who wanted a calmer way to keep what they read. It doesn't show ads, sell browsing history or charge a subscription. Tips go into keeping it maintained and improving it.
@@ -618,11 +532,24 @@
 
                             <div class="p-3 rounded-lg bg-okapi-choco border border-white/5 space-y-1">
                                 <div class="font-semibold text-white">Other ways to help?</div>
-                                <p class="text-slate-400">Leave a review on the Chrome Web Store once Okapi is listed, tell a friend, or report a bug on <a href="https://github.com/okapi-connect/okapi" class="text-okapi-amber hover:underline">GitHub</a>.</p>
+                                <p class="text-slate-400">Leave a review on the Chrome Web Store once Okapi is listed, tell a friend, or send a bug report or idea to <a href="mailto:okapi.support@gmail.com" class="text-okapi-amber hover:underline">okapi.support@gmail.com</a>.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="text-center max-w-3xl mx-auto mt-12 space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-okapi-terracotta/20 border border-okapi-terracotta/40 text-okapi-amber text-xs font-semibold">
+                    <span>🌿</span>
+                    <span>Feed the Okapi • Keep it free and independent</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+                    Support Okapi
+                </h1>
+                <p class="text-slate-300 text-base leading-relaxed">
+                    Okapi is free, and it stays free either way, with <strong>no ads, no tracking and no subscriptions</strong>. If it has saved you time, you can leave a tip to help keep it maintained. Tips are optional and never unlock anything.
+                </p>
             </div>
         </div>
     </main>
@@ -645,9 +572,6 @@
                         Keep the lines that matter from articles, docs, AI chats and research, and find them again later. No accounts, no tracking and no cloud.
                     </p>
                     <div class="flex items-center gap-3 text-slate-400 text-sm pt-2">
-                        <a href="https://github.com/okapi-connect/okapi" target="_blank" rel="noopener" aria-label="GitHub" class="w-8 h-8 rounded-lg bg-okapi-dark border border-okapi-border flex items-center justify-center hover:text-okapi-amber hover:border-okapi-amber/50 transition-all">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
                         <!-- TODO: replace # with the Chrome Web Store link once the extension is published -->
                         <a href="#" aria-label="Chrome Web Store" class="w-8 h-8 rounded-lg bg-okapi-dark border border-okapi-border flex items-center justify-center hover:text-okapi-amber hover:border-okapi-amber/50 transition-all">
                             <i class="fa-brands fa-chrome"></i>
@@ -674,6 +598,7 @@
                     <ul class="space-y-2 text-xs text-slate-400 font-medium">
                         <li><button onclick="openModal('privacy-modal')" class="hover:text-white flex items-center gap-1.5 transition-colors"><i class="fa-solid fa-user-shield text-[10px] text-emerald-400"></i> Privacy Policy</button></li>
                         <li><button onclick="openModal('contact-modal')" class="hover:text-white flex items-center gap-1.5 transition-colors"><i class="fa-solid fa-headset text-[10px] text-okapi-amber"></i> Contact & feedback</button></li>
+                        <li><a href="mailto:okapi.support@gmail.com" class="hover:text-white flex items-center gap-1.5 transition-colors"><i class="fa-regular fa-envelope text-[10px] text-okapi-amber"></i> okapi.support@gmail.com</a></li>
                         <li><button onclick="showSection('support')" class="hover:text-white flex items-center gap-1.5 transition-colors"><i class="fa-solid fa-heart text-[10px] text-okapi-terracotta"></i> Support the project</button></li>
                     </ul>
                     <div class="pt-2">
@@ -750,7 +675,7 @@
                     </div>
                     <div>
                         <h3 class="font-bold text-white text-lg">Contact</h3>
-                        <p class="text-xs text-slate-400">Feedback, bug reports or feature ideas?</p>
+                        <p class="text-xs text-slate-400">Found a bug or wish Okapi did something more?</p>
                     </div>
                 </div>
                 <button onclick="closeModal('contact-modal')" aria-label="Close" class="text-slate-400 hover:text-white text-lg">
@@ -771,29 +696,46 @@
                     <i class="fa-solid fa-paper-plane"></i>
                     <span>Open in my email app</span>
                 </button>
-                <!-- TODO: replace with the email address you want to publish -->
-                <p class="text-center text-slate-500">Or email <a href="mailto:hello@okapi.in" class="text-okapi-amber hover:underline">hello@okapi.in</a> directly.</p>
+                <p class="text-center text-slate-500">Or email <a href="mailto:okapi.support@gmail.com" class="text-okapi-amber hover:underline">okapi.support@gmail.com</a> directly.</p>
             </form>
         </div>
     </div>
 
     <script>
-        const CONTACT_EMAIL = 'hello@okapi.in';
-        const TIP_INR = { 3: 250, 5: 400, 10: 800 };
+        const CONTACT_EMAIL = 'okapi.support@gmail.com';
 
-        // Colours copied from the extension's lib/themes.css
+        // Screenshots in assets/screens, taken from the real extension
+        const SHOWCASE = [
+            { img: '1-save.webp', title: 'Select. Save. Tag.', text: 'Highlight any text and click Save. Tags you\'ve used before are suggested as you type.', alt: 'The Okapi Save button and tag suggestions over selected text on a Wikipedia article' },
+            { img: '2-highlights.webp', title: 'Highlights that stay', text: 'Come back to a page and the lines you saved are still marked.', alt: 'Saved sentences highlighted in yellow on the Wikipedia Okapi article' },
+            { img: '3-code.webp', title: 'Code stays code', text: 'Code blocks keep their layout and colours, with a one-click Copy.', alt: 'A saved JavaScript code block with syntax colours and a Copy code button in the Okapi library' },
+            { img: '4-library.webp', title: 'A notebook for every site', text: 'Each website gets its own notebook. Browse as cards, a list, or one page after another.', alt: 'The Okapi library showing saved highlights as cards, grouped by website in the sidebar' },
+            { img: '5-summary.webp', title: 'Key points, on your device', text: 'Summarize a page with Chrome\'s built-in AI. Nothing is sent to a server.', alt: 'A page in the Okapi library with its highlights and a bulleted summary of the page' },
+            { img: '6-themes.webp', title: '11 colour themes', text: 'Pick the look that suits you, from Okapi to Moonnight.', alt: 'The Okapi theme picker listing colour themes' },
+            { img: '7-export.webp', title: 'Take your notes anywhere', text: 'Export to PDF, Word, plain text or JSON whenever you like.', alt: 'The Okapi export menu with PDF, Word, plain text and JSON options' }
+        ];
+
+        const FACTS = [
+            { icon: '👅', title: 'An 18-inch tongue', wild: 'Okapis pluck single leaves from tangled branches with a tongue long enough to clean their own ears.', ext: 'Okapi plucks just the lines you want from a cluttered page, without the ads.' },
+            { icon: '👻', title: 'The forest ghost', wild: 'So quiet and well hidden that science didn\'t describe the okapi until 1901.', ext: 'Okapi works just as quietly: no accounts, no tracking, nothing leaves your device.' },
+            { icon: '🤫', title: 'Secret calls', wild: 'Okapis talk in infrasound, too low for people or leopards to hear.', ext: 'AI summaries run silently on your device, never over the internet.' },
+            { icon: '🦓', title: 'Stripes that stand out', wild: 'Bold leg stripes help an okapi melt into the dappled forest light.', ext: 'Your highlights stand out on the page and keep their formatting in your notebook.' },
+            { icon: '🍃', title: 'A picky eater', wild: 'Of thousands of rainforest plants, okapis eat only about 100.', ext: 'Keep only the best lines, sorted by site and tag. Skip the bookmark pile.' }
+        ];
+
+        // Button colours copied from the extension's lib/themes.css; screenshots in assets/screens/themes
         const THEMES = [
-            { id: 'okapi', name: 'Okapi', bg: '#fffbf5', fg: '#26150f', muted: '#6e5649', line: '#e8d8c4', chip: '#ebdcc6', chipFg: '#5a2a18', accent: '#8a3f22', mark: '#f7d98b', on: '#ffffff', logoBg: '#f6e1d2' },
-            { id: 'barbie', name: 'Barbie', bg: '#fff6fa', fg: '#2e1033', muted: '#7a4f78', line: '#f6c9e0', chip: '#ffdff0', chipFg: '#8f0f55', accent: '#d81b84', mark: '#ffc6e4', on: '#ffffff', logoBg: '#ffd0e8' },
-            { id: 'spider', name: 'Spiderman', bg: '#0a1127', fg: '#f4f6ff', muted: '#a9b6dc', line: '#22305f', chip: '#16295f', chipFg: '#a9c8ff', accent: '#e0262d', mark: '#6b1d27', on: '#ffffff', logoBg: '#ffd6d8' },
-            { id: 'pikachu', name: 'Pikachu', bg: '#fffbe8', fg: '#1b1706', muted: '#6b6020', line: '#efdc8c', chip: '#ffe978', chipFg: '#3a3000', accent: '#ffcb05', mark: '#ffe066', on: '#1b1706', logoBg: '#ffcb05' },
-            { id: 'naruto', name: 'Naruto', bg: '#ffecd9', fg: '#14110d', muted: '#3a2208', line: '#f0a868', chip: '#ffcf9e', chipFg: '#14110d', accent: '#14110d', mark: '#ffb870', on: '#ffffff', logoBg: '#ffd2a6' },
-            { id: 'superman', name: 'Superman', bg: '#f5f9ff', fg: '#0b1b3a', muted: '#4b5f86', line: '#c7d7f2', chip: '#d3e2ff', chipFg: '#123c8c', accent: '#1456d6', mark: '#bcd3ff', on: '#ffffff', logoBg: '#d3e1ff' },
-            { id: 'greenlantern', name: 'Green Lantern', bg: '#060d08', fg: '#eafbee', muted: '#9fc0a8', line: '#1d3a26', chip: '#12301c', chipFg: '#8df0aa', accent: '#1fd65a', mark: '#1f5a2a', on: '#04110a', logoBg: '#1fd65a' },
-            { id: 'hulk', name: 'Hulk', bg: '#e6f9ec', fg: '#0a1410', muted: '#12301c', line: '#8fd9a8', chip: '#e1d5fb', chipFg: '#3b1a85', accent: '#6d28d9', mark: '#a8f0bf', on: '#ffffff', logoBg: '#c4f0d1' },
-            { id: 'moonnight', name: 'Moonnight', bg: '#1b1e24', fg: '#e8eaee', muted: '#a3a9b5', line: '#333843', chip: '#272b33', chipFg: '#b8bec9', accent: '#b4bccc', mark: '#4a4f5c', on: '#14161a', logoBg: '#b4bccc' },
-            { id: 'black', name: 'Black', bg: '#000000', fg: '#ececf0', muted: '#9a9aa4', line: '#26262c', chip: '#17171b', chipFg: '#b4b4be', accent: '#d8d8e0', mark: '#4a4a55', on: '#000000', logoBg: '#d8d8e0' },
-            { id: 'white', name: 'White', bg: '#ffffff', fg: '#17171c', muted: '#5d6068', line: '#e3e3e8', chip: '#efeff2', chipFg: '#4a4d55', accent: '#27272f', mark: '#fde68a', on: '#ffffff', logoBg: '#e3e3e8' }
+            { id: 'okapi', name: 'Okapi', bg: '#fffbf5', fg: '#26150f', accent: '#8a3f22' },
+            { id: 'barbie', name: 'Barbie', bg: '#fff6fa', fg: '#2e1033', accent: '#d81b84' },
+            { id: 'spider', name: 'Spiderman', bg: '#0a1127', fg: '#f4f6ff', accent: '#e0262d' },
+            { id: 'pikachu', name: 'Pikachu', bg: '#fffbe8', fg: '#1b1706', accent: '#ffcb05' },
+            { id: 'naruto', name: 'Naruto', bg: '#ffecd9', fg: '#14110d', accent: '#14110d' },
+            { id: 'superman', name: 'Superman', bg: '#f5f9ff', fg: '#0b1b3a', accent: '#1456d6' },
+            { id: 'greenlantern', name: 'Green Lantern', bg: '#060d08', fg: '#eafbee', accent: '#1fd65a' },
+            { id: 'hulk', name: 'Hulk', bg: '#e6f9ec', fg: '#0a1410', accent: '#6d28d9' },
+            { id: 'moonnight', name: 'Moonnight', bg: '#1b1e24', fg: '#e8eaee', accent: '#b4bccc' },
+            { id: 'black', name: 'Black', bg: '#000000', fg: '#ececf0', accent: '#d8d8e0' },
+            { id: 'white', name: 'White', bg: '#ffffff', fg: '#17171c', accent: '#27272f' }
         ];
 
         // Modal helpers
@@ -877,43 +819,93 @@
             }, 900);
         }
 
-        // Library view modes
-        function switchLibraryView(mode) {
-            const container = document.getElementById('library-container');
-            const tabs = { cards: 'tab-cards', list: 'tab-list', reader: 'tab-reader' };
-            const layouts = {
-                cards: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
-                list: "grid grid-cols-1 gap-4",
-                reader: "grid grid-cols-1 max-w-3xl mx-auto gap-8"
-            };
+        // Carousel: native scroll-snap handles swiping; [data-step] buttons, the dots and
+        // anything calling goTo() scroll the [data-track]. It auto-advances, and any manual
+        // move restarts the countdown so the new slide gets its full time.
+        function makeCarousel(boxId, slides, { slideClass, dotLabel, interval, onChange }) {
+            const box = document.getElementById(boxId);
+            const track = box.querySelector('[data-track]');
+            const dots = box.querySelector('[data-dots]');
+            let current = 0, timer;
 
-            Object.entries(tabs).forEach(([key, id]) => {
-                document.getElementById(id).className = key === mode
-                    ? "px-3 py-1.5 rounded-lg bg-okapi-amber text-okapi-choco font-semibold transition-all"
-                    : "px-3 py-1.5 rounded-lg hover:text-white transition-all";
+            slides.forEach((html, i) => {
+                const slide = document.createElement('div');
+                slide.className = "snap-start shrink-0 w-full " + slideClass;
+                slide.setAttribute('role', 'group');
+                slide.setAttribute('aria-label', `${i + 1} of ${slides.length}`);
+                slide.innerHTML = html;
+                track.appendChild(slide);
+
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `${dotLabel} ${i + 1}`);
+                dot.onclick = () => goTo(i);
+                dots.appendChild(dot);
             });
-            container.className = layouts[mode];
+
+            const goTo = i => track.scrollTo({ left: i * track.clientWidth });
+            const step = delta => goTo((current + delta + slides.length) % slides.length);
+            const restart = () => { clearInterval(timer); timer = setInterval(() => step(1), interval); };
+
+            function update() {
+                if (track.clientWidth) current = Math.round(track.scrollLeft / track.clientWidth);
+                [...dots.children].forEach((dot, i) => {
+                    dot.className = `h-1.5 rounded-full transition-all ${i === current ? 'w-5 bg-okapi-amber' : 'w-1.5 bg-okapi-border hover:bg-slate-500'}`;
+                });
+                if (onChange) onChange(current);
+            }
+
+            box.querySelectorAll('[data-step]').forEach(b => b.onclick = () => step(Number(b.dataset.step)));
+            track.addEventListener('scroll', update, { passive: true });
+            box.addEventListener('click', restart);
+            track.addEventListener('touchend', restart, { passive: true });
+            update();
+            restart();
+            return { goTo, restart };
         }
 
-        // Tip tier selection
-        function selectTipTier(usdAmount, tierName, btn) {
-            document.querySelectorAll('.tip-tier-btn').forEach(b => {
-                b.className = "tip-tier-btn p-4 rounded-xl border border-okapi-border bg-okapi-dark text-left transition-all hover:scale-105";
-            });
+        makeCarousel('facts', FACTS.map(f => `
+            <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl">${f.icon}</span>
+                <span class="font-bold text-white">${f.title}</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed"><span class="text-emerald-400 font-semibold">In the rainforest:</span> ${f.wild}</p>
+            <p class="text-xs text-slate-300 leading-relaxed mt-2"><span class="text-okapi-amber font-semibold">In your browser:</span> ${f.ext}</p>`), {
+            slideClass: "p-5 rounded-xl bg-okapi-choco border border-okapi-border",
+            dotLabel: 'Fact',
+            interval: 5000
+        });
 
-            btn.className = "tip-tier-btn active p-4 rounded-xl border border-okapi-amber bg-okapi-terracotta/20 text-left transition-all hover:scale-105";
-            document.getElementById('selected-tier-name').innerText = tierName;
-            document.getElementById('selected-tier-amount').innerText = `$${usdAmount} / ₹${TIP_INR[usdAmount]}`;
-        }
+        // Feature screenshots carousel, with a clickable step list beside it on large screens
+        const showcaseSteps = document.getElementById('showcase-steps');
+        const showcaseCaption = document.getElementById('showcase-caption');
+        const showcase = makeCarousel('showcase', SHOWCASE.map((s, i) => `
+            <img src="assets/screens/${s.img}" alt="${s.alt}" width="1280" height="800" ${i ? 'loading="lazy"' : ''} class="w-full h-auto block">`), {
+            slideClass: "",
+            dotLabel: 'Screenshot',
+            interval: 6000,
+            onChange: i => {
+                [...showcaseSteps.children].forEach((b, j) => {
+                    b.setAttribute('aria-current', i === j);
+                    b.className = `w-full text-left p-4 rounded-xl border transition-all ${i === j ? 'bg-okapi-card/70 border-okapi-amber/50' : 'border-transparent hover:bg-okapi-card/40'}`;
+                });
+                showcaseCaption.innerHTML = `<div class="font-bold text-white">${SHOWCASE[i].title}</div><p class="text-sm text-slate-400 mt-1">${SHOWCASE[i].text}</p>`;
+            }
+        });
+        SHOWCASE.forEach((s, i) => {
+            const b = document.createElement('button');
+            b.innerHTML = `<div class="font-semibold text-white text-sm">${s.title}</div><p class="text-xs text-slate-400 mt-1">${s.text}</p>`;
+            b.onclick = () => { showcase.goTo(i); showcase.restart(); };
+            showcaseSteps.appendChild(b);
+        });
+        document.getElementById('showcase-track').dispatchEvent(new Event('scroll'));
 
-        // Theme preview
+        // Theme preview: swap in the library screenshot taken in that theme
         function previewTheme(id) {
             const t = THEMES.find(theme => theme.id === id);
-            const box = document.getElementById('theme-preview-box');
-            ['bg', 'fg', 'muted', 'line', 'chip', 'chipFg', 'accent', 'mark', 'on', 'logoBg'].forEach(key => {
-                box.style.setProperty(`--p-${key}`, t[key]);
-            });
-            document.getElementById('theme-title').innerText = t.name;
+            const shot = document.getElementById('theme-shot');
+            shot.src = `assets/screens/themes/${t.id}.webp`;
+            shot.alt = `The Okapi library in the ${t.name} theme`;
+            document.getElementById('theme-preview-box').style.borderColor = t.accent;
 
             document.querySelectorAll('#theme-buttons button').forEach(b => {
                 const active = b.dataset.theme === id;
